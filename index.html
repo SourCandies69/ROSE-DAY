@@ -8,37 +8,55 @@
     <style>
         body {
             font-family:'Times New Roman', Times, serif;
-            background-color: #f7f7f7;
+            background-image: url('bg1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
             margin: 0;
             padding: 0;
             overflow: hidden;
         }
 
-        #rose {
-            width: 150px;
-            height: auto;
+        #roseContainer {
+            text-align: center;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        #rose {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
             animation: bloom 2s ease-in-out infinite;
         }
 
         h1 {
             text-align: center;
-            color: #ff005d;
+            color: #ff0267;
             opacity: 0;
             animation: fadeInUp 2s forwards;
-            font-size: 40px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4081; /* Custom color, you can change it */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInUp 1s 1s forwards; /* Delay the button animation by 1 second */
         }
 
         @keyframes bloom {
             0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
+                transform: scale(1);
             }
 
             50% {
-                transform: translate(-50%, -50%) scale(1.2);
+                transform: scale(1.2);
             }
         }
 
@@ -52,8 +70,19 @@
 </head>
 
 <body>
+    
     <h1>Happy Rose <br>Day!</h1>
-    <img id="rose" src="rose.png" alt="Rose">
+    <div id="roseContainer">
+        <img id="rose" src="rose.png" alt="Rose"><br><br><br><br><br><br><br>
+        <button onclick="proceedToNextPage()">Proceed to Next Page</button>
+    </div>
+
+    <script>
+        function proceedToNextPage() {
+            // Redirect to the next page
+            window.location.href = 'rose.html'; // Replace 'next_page.html' with the actual file name
+        }
+    </script>
 </body>
 
 </html>
