@@ -3,7 +3,7 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-size: 70%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-image: url('rs.png');
     background-position: center;
@@ -12,10 +12,10 @@ body {
   
   #envelope {
     position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 200px;
-    height: 200px;
+    top: 5%;
+    left: 5%;
+    width: 20px;
+    height: 20px;
   }
   
   #envelope > * {
