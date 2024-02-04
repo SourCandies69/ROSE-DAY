@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rose Day Special</title>
     <style>
         body {
             margin: 0;
@@ -20,10 +17,13 @@
 
         #envelope {
             position: absolute;
-            top: 150px;
-            left: 600px;
-            width: 300px;
-            height: 300px;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 300px;
+            height: 80%;
+            max-height: 300px;
         }
 
         #envelope>* {
@@ -65,21 +65,22 @@
             background-color: rgb(255, 255, 255);
             padding: 5px;
             z-index: 5;
-            left: 15px;
-            right: 15px;
+            left: 10px;
+            right: 10px;
             bottom: 5px;
-            top: 105px;
+            top: 30%;
 
             box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
                 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
             overflow: hidden;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         h1 {
             padding-top: 12px;
             color: rgb(255, 255, 255);
             text-align: center;
+            font-size: 18px;
         }
 
         h1 span {
@@ -87,7 +88,7 @@
         }
 
         p {
-            font-size: 17px;
+            font-size: 16px;
             padding: 2px;
             line-height: 20px;
         }
@@ -103,25 +104,25 @@
 
         @keyframes makebig {
             0% {
-                top: 105px;
-                left: 15px;
-                right: 15px;
+                top: 30%;
+                left: 10px;
+                right: 10px;
                 bottom: 5px;
-                font-size: 16px;
+                font-size: 14px;
             }
             33% {
                 top: -100px;
-                left: 15px;
-                right: 15px;
-                bottom: 150px;
-                font-size: 16px;
+                left: 10px;
+                right: 10px;
+                bottom: 100px;
+                font-size: 14px;
             }
             100% {
                 top: -0px;
-                left: -55px;
-                right: -25px;
-                bottom: -100px;
-                font-size: 24px;
+                left: -25px;
+                right: -15px;
+                bottom: -50px;
+                font-size: 18px;
             }
         }
 
@@ -153,8 +154,9 @@
             text-align: center;
             color: white;
             cursor: pointer;
-            top: calc(200px - 25px);
-            left: calc(150px - 25px);
+            top: calc(80% - 25px);
+            left: 50%;
+            transform: translateX(-50%);
             transition: transform 1s, background-color 1s, color 1s;
         }
 
@@ -168,6 +170,7 @@
         .text h1 {
             color: rgb(255, 255, 255);
             text-align: center;
+            font-size: 18px;
         }
 
         @keyframes bloom {
@@ -207,10 +210,9 @@
         }
     </script>
 </head>
-
 <body>
     <div class="text">
-        <h1>Hey ! Listen this is for you 💖....</h1>
+        <h1>Hey! Listen this is for you 💖....</h1>
     </div>
     <div id="envelope">
         <div id="back">
@@ -266,13 +268,12 @@
         <div id="letter">
             <h1>For My <span>Love</span></h1>
 
-            <!-- <img src="https://i.postimg.cc/5yZQnDpb/ukraine-7424066-640.webp" />-->
             <p>
-                You are the person I have been dreaming all my life , so allow me to
+                You are the person I have been dreaming all my life, so allow me to
                 express my intense love for you. You are the most precious thing in my
                 life. You have fascinated my heart and seized my mind with your
-                magnetic presence and I keep dreaming of yourself Your memories are
-                invaluable treasure of my life, which are locked inside my heart. The
+                magnetic presence, and I keep dreaming of yourself Your memories are
+                an invaluable treasure of my life, which is locked inside my heart. The
                 time spent with you was the most mesmerizing and delightful of my
                 life.
             </p>
@@ -280,5 +281,4 @@
         <button onclick="openUp()">Click Here</button>
     </div>
 </body>
-
 </html>
