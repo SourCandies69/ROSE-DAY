@@ -1,99 +1,284 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="open.css" />
+    <title>Rose Day Special</title>
+    <style>
+        body {
+            margin: 0;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-image: url('rs.png');
+            background-position: center;
+            overflow: hidden;
+        }
+
+        #envelope {
+            position: absolute;
+            top: 150px;
+            left: 600px;
+            width: 300px;
+            height: 300px;
+        }
+
+        #envelope>* {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #back {
+            display: block;
+            z-index: 0;
+        }
+
+        #front {
+            display: block;
+            z-index: 10;
+        }
+
+        #top {
+            display: block;
+            z-index: 11;
+        }
+
+        #top.animate,
+        #front.animate,
+        #back.animate,
+        #envelope button.animate {
+            opacity: 0;
+            transition: opacity 1s;
+            transition-delay: 1s;
+        }
+
+        #letter {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            padding: 5px;
+            z-index: 5;
+            left: 15px;
+            right: 15px;
+            bottom: 5px;
+            top: 105px;
+
+            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+                0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            font-size: 16px;
+        }
+
+        h1 {
+            padding-top: 12px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        h1 span {
+            color: red;
+        }
+
+        p {
+            font-size: 17px;
+            padding: 2px;
+            line-height: 20px;
+        }
+
+        #letter img {
+            background-size: cover;
+        }
+
+        #letter.animate {
+            animation: makebig 2s forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes makebig {
+            0% {
+                top: 105px;
+                left: 15px;
+                right: 15px;
+                bottom: 5px;
+                font-size: 16px;
+            }
+            33% {
+                top: -100px;
+                left: 15px;
+                right: 15px;
+                bottom: 150px;
+                font-size: 16px;
+            }
+            100% {
+                top: -0px;
+                left: -55px;
+                right: -25px;
+                bottom: -100px;
+                font-size: 24px;
+            }
+        }
+
+        #letter h1 {
+            font-size: inherit;
+        }
+
+        #letter h2 {
+            font-size: inherit;
+        }
+
+        #letter img {
+            height: 50%;
+        }
+
+        a {
+            color: red;
+        }
+
+        #envelope button {
+            display: block;
+            z-index: 15;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: rgb(255, 89, 0);
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            top: calc(200px - 25px);
+            left: calc(150px - 25px);
+            transition: transform 1s, background-color 1s, color 1s;
+        }
+
+        #envelope button:hover {
+            background-color: white;
+            transform: scale(1.5);
+            color: rgb(255, 89, 0);
+            transition: transform 1s, background-color 1s, color 1s;
+        }
+
+        .text h1 {
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        @keyframes bloom {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
     <script>
-      function openUp() {
-        const $opentop = document.querySelector("#opentop");
-        const $top = document.querySelector("#top");
-        const $front = document.querySelector("#front");
-        const $back = document.querySelector("#back");
-        const $letter = document.querySelector("#letter");
-        const $button = document.querySelector("button");
+        function openUp() {
+            const $opentop = document.querySelector("#opentop");
+            const $top = document.querySelector("#top");
+            const $front = document.querySelector("#front");
+            const $back = document.querySelector("#back");
+            const $letter = document.querySelector("#letter");
+            const $button = document.querySelector("button");
 
-        $opentop.beginElement();
-        $top.style.zIndex = 2;
+            $opentop.beginElement();
+            $top.style.zIndex = 2;
 
-        $top.classList.add("animate");
-        $front.classList.add("animate");
-        $back.classList.add("animate");
-        $button.classList.add("animate");
-        $letter.classList.add("animate");
-      }
+            $top.classList.add("animate");
+            $front.classList.add("animate");
+            $back.classList.add("animate");
+            $button.classList.add("animate");
+            $letter.classList.add("animate");
+        }
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="text">
-      <h1>Hey ! Listen this is for you 💖....</h1>
+        <h1>Hey ! Listen this is for you 💖....</h1>
     </div>
     <div id="envelope">
-      <div id="back">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          height="300"
-          width="300"
-        >
-          <polygon
-            points="0,100 300,100 300,300 0,300"
-            style="fill: #4a274a; stroke: none; stroke-width: 0"
-          />
-        </svg>
-      </div>
-      <div id="front">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          height="300"
-          width="300"
-        >
-          <polygon
-            points="0,100 150,200 300,100 300,300 0,300"
-            style="fill: #2abad0; stroke: #ffffff; stroke-width: 3"
-          />
-        </svg>
-      </div>
-      <div id="top">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          height="300"
-          width="300"
-        >
-          <polygon
-            points="0,100 150,200 300,100"
-            style="fill: #2abad0; stroke: #ffffff; stroke-width: 2"
-          >
-            <animate
-              id="opentop"
-              attributeName="points"
-              dur="0.5s"
-              fill="freeze"
-              begin="indefinite"
-              from="0,100 150,200 300,100"
-              to="0,100 150,0 300,100"
-            />
-          </polygon>
-        </svg>
-      </div>
+        <div id="back">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                height="300"
+                width="300"
+            >
+                <polygon
+                    points="0,100 300,100 300,300 0,300"
+                    style="fill: #4a274a; stroke: none; stroke-width: 0"
+                />
+            </svg>
+        </div>
+        <div id="front">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                height="300"
+                width="300"
+            >
+                <polygon
+                    points="0,100 150,200 300,100 300,300 0,300"
+                    style="fill: #2abad0; stroke: #ffffff; stroke-width: 3"
+                />
+            </svg>
+        </div>
+        <div id="top">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                height="300"
+                width="300"
+            >
+                <polygon
+                    points="0,100 150,200 300,100"
+                    style="fill: #2abad0; stroke: #ffffff; stroke-width: 2"
+                >
+                    <animate
+                        id="opentop"
+                        attributeName="points"
+                        dur="0.5s"
+                        fill="freeze"
+                        begin="indefinite"
+                        from="0,100 150,200 300,100"
+                        to="0,100 150,0 300,100"
+                    />
+                </polygon>
+            </svg>
+        </div>
 
-      <div id="letter">
-        <h1>For My <span>Love</span></h1>
+        <div id="letter">
+            <h1>For My <span>Love</span></h1>
 
-        <!-- <img src="https://i.postimg.cc/5yZQnDpb/ukraine-7424066-640.webp" />-->
-        <p>
-          You are the person I have been dreaming all my life , so allow me to
-          express my intense love for you. You are the most precious thing in my
-          life. You have fascinated my heart and seized my mind with your
-          magnetic presence and I keep dreaming of yourself Your memories are
-          invaluable treasure of my life, which are locked inside my heart. The
-          time spent with you was the most mesmerizing and delightful of my
-          life.
-        </p>
-      </div>
-      <button onclick="openUp()">Click Here</button>
+            <!-- <img src="https://i.postimg.cc/5yZQnDpb/ukraine-7424066-640.webp" />-->
+            <p>
+                You are the person I have been dreaming all my life , so allow me to
+                express my intense love for you. You are the most precious thing in my
+                life. You have fascinated my heart and seized my mind with your
+                magnetic presence and I keep dreaming of yourself Your memories are
+                invaluable treasure of my life, which are locked inside my heart. The
+                time spent with you was the most mesmerizing and delightful of my
+                life.
+            </p>
+        </div>
+        <button onclick="openUp()">Click Here</button>
     </div>
-  </body>
-</html>
+</body>
 
+</html>
